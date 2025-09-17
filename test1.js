@@ -36,7 +36,16 @@ result 라는 변수를 선언하고, num1/num2 값으로 초기화 해주세요
 let num1 = 3;
 let num2 = 2;
 let result = num1/num2;
-console.log(`num1: ${num1}`);
-console.log(`num2: ${num2}`);
-console.log(`result: ${result}`);
+//console.log(`num1: ${num1}`);
+//console.log(`num2: ${num2}`);
+//console.log(`result: ${result}`);
 
+//            0     1    2  3   의 순서
+let array = [num1, num2, 3, 4];
+console.log(`array 서랍의 첫번째 array[0] : ${array[0]}`);
+
+/*
+옛날 노드는 에러로 나와요
+최신 노드는 undefined 나오네요
+*/
+console.log(`array 서랍의 첫번째 array[99] : ${array[99]}`);
