@@ -1,0 +1,3 @@
+Typescript
+
+npm install -g ts-node typescript //터미널에 붙여넣기
