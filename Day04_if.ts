@@ -48,16 +48,17 @@ if (score < 60) {console.log("F")}
 */
 
 if (score >= 90) {
-    console.log("A")
+    console.log("A");
 }
 else if (score >= 90 && score <= 89) {
-    console.log("B")
+    console.log("B");
 }
 else if (score >= 70 && score <= 79) {
-    console.log("C")
+    console.log("C");
 }
 else if (score >= 60 && score <= 69) {
-    console.log("D")
-} else if (score > 60) {
-    console.log("F")
+    console.log("D");
+} else if (score < 60) {
+    console.log("F");
 }
+
