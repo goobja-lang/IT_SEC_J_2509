@@ -33,8 +33,8 @@ array1.forEach((item) => {
 
 // idx * idy 만큼 실행하죠
 for (let idx = 2; idx <= 9; idx++) { // idx= idx+1
-    for (let idy = 2; idy <= 9; idy++) { // idx= idx+1
-        console.log(`idx: ${idx} * idy: ${idy} = ${idx * idy}`);
+    for (let idy = 1; idy <= 9; idy++) { // idx= idx+1
+        //console.log(`idx: ${idx} * idy: ${idy} = ${idx * idy}`);
     }
 }
 /*
@@ -44,41 +44,40 @@ for (let idx = 2; idx <= 9; idx++) { // idx= idx+1
 다른놈으로 취급되요
  */
 
+for (let item of array1) {
+    //console.log(`item: ${item}`);
+}
+
+
+
 /*
-제어문
+제어문 -
 if
 loop
 
-함수 - 모듈, 기계, 블랙박스(우리가 가져다 쓸때) & 화이트박스(우리가 만들었을 때)                     
+함수 - 모듈, 기계, 블랙박스 & 화이트박스
 블랙박스 기준 : 함수는 사용법이 있어요
-*/
-/** sum() 함수를 호출하세요. 그러면 흑백 화면에 1+2를 보여줄 거에요 */
-
-function sum(){
+ */
+/** sum() 함수를 호출하세요. 그러면 흑백 화면에 1+2을 보여줄 거에요 */
+function sum() {
     console.log("1+2=3");
 }
 
-// f(x) = ... 괄호가 꼭 있어야한다 
 /*
 function : 함수를 선언 하겠다
 sum 함수 이름 짓겠다. 내가 지으고 싶은걸로 지으면 되요
 () 이건 함수 이름 오른쪽에 꼭 있어야 되요
 {} 이건 () 오른쪽에 꼭 있어야 되요
-{} 안에 내가 하고 싶은 내용물 채우면 되요
+{} 안에 내가 하고싶은 내용물 채우면 되요
  */
 
-sum(); //함수를 호출한다
+//sum();
 
 /*
 subtract 라는 함수를 선언하고,
-흑백 화면에 2-1=1 이라는 내용물을 채워주세요.
-*/
+흑백 화면에 2-1=1 이라는 내용물을 채워 주세요
+ */
 
-function subtract(){
-    console.log("2-1=1");
-}
-
-subtract();
 
 /** 
  * 함수의 모범 
@@ -90,5 +89,33 @@ function sum2(a: number, b: number) {
     return a + b;
 }
 
-let data = sum2(1, 2); //함수를 가져다 쓰고 여기에(data) 저장(let)
-console.log(`data : ${data}`);
+let data = sum2(1, 2);
+//console.log(`data : ${data}`);
+
+
+let array2 = [9, 1, 7, 3, 2, 4, 7, 89665, 22, 42, 1, 111];
+
+/** 
+ * 숫자 정렬 함수 
+ * @param array2 number[]. 숫자 배열
+ * @returns number[]. 정렬된 숫자 배열
+ */
+function number_sort(array2: number[]) {
+    for (let i = 0; i < array2.length; i++) {
+        for (let j = i + 1; j < array2.length; j++) {
+            try {
+                if (array2[i] > array2[j]) {
+                    let temp = array2[j];
+                    array2[j] = array2[i];
+                    array2[i] = temp;
+                }
+            } catch (error: any) {
+
+            }
+        }
+    }
+    return array2
+}
+
+array2 = number_sort(array2);
+console.log(array2)
