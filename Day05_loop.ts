@@ -79,3 +79,16 @@ function subtract(){
 }
 
 subtract();
+
+/** 
+ * 함수의 모범 
+ * @param a 첫 번째 숫자
+ * @param b 두 번째 숫자
+ * @returns a + b 의 결과값
+ */
+function sum2(a: number, b: number) {
+    return a + b;
+}
+
+let data = sum2(1, 2); //함수를 가져다 쓰고 여기에(data) 저장(let)
+console.log(`data : ${data}`);
