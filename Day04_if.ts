@@ -34,7 +34,7 @@ if, else if, else 요거는 한 세트에요.
 let score = 60;
 /*
 점수가 90점 이상이면 A
-80~89점이면 B
+80~89점이면 Bnode Day04_if.ts 
 70~79점이면 C
 60~69점이면 D
 60점도 안되면 F
@@ -58,6 +58,6 @@ else if (score >= 70 && score <= 79) {
 }
 else if (score >= 60 && score <= 69) {
     console.log("D")
-} else (score > 60) {
+} else if (score > 60) {
     console.log("F")
 }
