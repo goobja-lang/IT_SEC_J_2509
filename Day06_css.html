@@ -36,6 +36,85 @@
       .red-text {
         color: red;
       }
+
+      .test-color {
+        color: aqua;
+      }
+
+      .test-bg-color {
+        background-color: lightblue;
+        opacity: 0.9;
+      }
+
+      .test-bg-image {
+        background-image: url("https://picsum.photos/200");
+      }
+
+      .test-border-dotted {
+        border-style: dotted;
+      }
+
+      .test-border-dashed {
+        border-style: dashed;
+      }
+
+      .test-border-solid {
+        border-style: solid;
+      }
+
+      /* 다른 element 랑 얼마나 떨어질거냐 */
+      .test-margin {
+        /* vh : 브라우저 높이(viewport height)의 % 
+        vw : 브라우저 너비(viewport width)의 %*/
+        margin: 10vh;
+      }
+
+      /* 태그 안에서, 태그랑 element랑 얼마나 떨어 질거냐 */
+      .test-padding {
+        padding: 20vh;
+      }
+
+      table,
+      td,
+      th {
+        border: 1px solid;
+        padding: 10px;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      .test-form {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .test-label {
+        display: block;
+      }
+
+      .test-input {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      .test-submit {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -43,11 +122,68 @@
     <!-- inline css
      태그 안에다가 css 스타일 다 때려 넣는거
      잘 안쓰임-->
-    <div class="highlight">
+    <div>
       <div style="color: blue">div 태그를 밥먹듯이 써요</div>
 
-      <h1>This is a heading</h1>
-      <p class="red-text">This is a paragraph.</p>
+      <div class="test-color">테스트 color 에요</div>
+      <div class="test-bg-color">테스트 test-bg-color 에요</div>
+      <div class="test-bg-image">테스트 test-bg-image 에요</div>
+      <div class="test-border-solid">border test</div>
+    </div>
+
+    <ul>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+
+    <div>
+      <table>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+        </tr>
+        <tr>
+          <td>Peter</td>
+          <td>Griffin</td>
+        </tr>
+        <tr>
+          <td>Lois</td>
+          <td>Griffin</td>
+        </tr>
+      </table>
+    </div>
+    <div class="test-margin">test margin</div>
+    <div class="test-border-solid test-padding">test padding</div>
+    <div class="test-margin">
+      <form action="/">
+        <label for="fname" class="test-label">First Name</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Your name.."
+          class="test-input"
+        />
+
+        <label for="lname" class="test-label">Last Name</label>
+        <input
+          type="text"
+          id="lname"
+          name="lastname"
+          placeholder="Your last name.."
+          class="test-input"
+        />
+
+        <label for="country" class="test-label">Country</label>
+        <select id="country" name="country" class="test-input">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+
+        <input type="submit" value="Submit" class="test-submit" />
+      </form>
     </div>
   </body>
 
