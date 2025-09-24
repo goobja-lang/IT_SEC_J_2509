@@ -91,7 +91,8 @@
       <div id="demo">메롱</div>
       <div class="right">
         <span>
-          <input id="input1" /> + <input id="input2"/ > =
+          <input id="input1" onkeypress="test(event)" /> +
+          <input id="input2" onkeypress="test(event)" /> =
           <span id="result1">...</span>
         </span>
       </div>
@@ -102,6 +103,10 @@
     </footer>
 
     <script>
+      function test(event) {
+        alert("작동함");
+      }
+
       (async () => {
         let dummy = { 속성1: "", 속성2: 0 };
         /* null safety
@@ -109,8 +114,8 @@
         에러가 안나요 */
         dummy = dummy?.fgf?.fgdrfg?.rfdgdrg?.ergr ?? null;
         console.log(`dummy: `, dummy);
-        let data = document.getElementById("demo");
 
+        let data = document.getElementById("demo");
         data.innerText = "안녕히가세요";
 
         // input1 에 <input id="input1" /> 저장됨
@@ -126,7 +131,6 @@
 
         /* input1_value + input2_value 값을 id="result1" 부분에
         값을 표시해 주세요 */
-
         let result1 = document.getElementById("result1");
         result1.innerText = input1_value + input2_value;
       })();
