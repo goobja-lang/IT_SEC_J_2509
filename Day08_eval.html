@@ -117,18 +117,17 @@
           // input1 에 <input id="input1" /> 저장됨
           let input1 = document.getElementById("input1");
           let input1_value = input1?.value ?? "";
-          console.log(`input1: `, input1);
+          console.log(`input1_value: `, input1_value);
 
           let result1 = document.getElementById("result1");
 
           /* eval() 을 사용해서 계산기 만들어 주세요 */
+          let data = eval(input1_value);
+          result1.innerText = data;
         }
       }
 
-      (async () => {
-        let data = eval("223/232*2423");
-        console.log(`eval: `, data);
-      })();
+      (async () => {})();
     </script>
   </body>
 
