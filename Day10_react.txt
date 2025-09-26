@@ -1,0 +1,73 @@
+문서 - react - react_test1 - 마우스 오른쪽 - git bash 클릭
+사이트 열기 위해서는 ctrl + J - npm run dev 입력
+
+
+예제
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+
+function App() {
+  /* inputVal 이라는 바인딩 변수랑 set 함수 만들어 주세요.
+  타입은 string */
+  const [inputVal, setinputVal] = useState<string>(""); //useState 바인딩 변수로 바뀜
+  const [result, setResult] = useState<string>("");
+  let dummy = "hello";
+  useEffect(() => {
+    //useEffect 페이지가 시작하면 무조건 보여지는 것
+    dummy = "bye";
+
+    //계산기는 eval , 매개변수(기계에 넣는 재료)
+  }, []);
+
+  function onInputEnter(event: React.KeyboardEvent) {
+    let key = event?.key;
+    if (key == "Enter") {
+      const hasOtherCharacters = /[^0-9+\-*/%]/.test(inputVal);
+
+      if (hasOtherCharacters) {
+        alert("수학 수식만 입력해 주세요");
+        return;
+      }
+      let data = eval(inputVal);
+      setevalResult(data);
+    }
+  }
+
+  return (
+    <div>
+      <div>
+        <input
+          value={inputVal}
+          onChange={(event) => {
+            let input_value = event?.target?.value ?? ""; //input_value 사이트 네모에 입력할 수 있는 값
+            //dummy = input_value; // 위에 것을 dummy에 저장한 것임
+
+            setinputVal(input_value);
+          }}
+          onKeyDown={(event) => {
+            //인풋창에서 키보다 눌려지면 발생하는 이벤트임
+            let key = event?.key;
+            if (key == "Enter") {
+              const hasOtherCharacters = /[^0-9+\-*/%]/.test(inputVal);
+
+              if (hasOtherCharacters) {
+                alert("수학 수식만 입력해 주세요");
+                return;
+              }
+              let data = eval(inputVal);
+              setResult(data);
+              /* 과제 : eval()을 사용해서 계산기를 만들어주세요*/
+            }
+          }}
+        />
+        <div>{dummy}</div>
+        <div>내가 타이핑 한거: {inputVal}</div>
+        <div>계산 결과: {result}</div> {/* 결과 출력 */}
+      </div>
+    </div>
+  );
+}
+
+export default App;
