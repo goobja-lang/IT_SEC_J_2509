@@ -6,6 +6,10 @@ src - 뉴폴더 Pages - App.tsx 복사 - Pages에 붙여넣고 Calc.tsx로 붙�
 Pages가 src 하부에 있어야 함
 Git 올라와져있는 것 확인하고 복붙
 
+src - 뉴폴더 Components - Calc 복붙 - Header로 변경
+Header 복붙 Footer로 변경
+내부 export default function Footer() 로 이름이 변경되어야 함
+
 
 
 -------------------------------------------
