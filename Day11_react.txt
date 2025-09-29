@@ -10,6 +10,16 @@ src - 뉴폴더 Components - Calc 복붙 - Header로 변경
 Header 복붙 Footer로 변경
 내부 export default function Footer() 로 이름이 변경되어야 함
 
+지금 변경한 것은 Footer/Header/Calc/App.tsx를 변경한거임
+Calc 부분이 계산기 부분임
+
+선생님 Git Reame 부분 복사하여 설치 tailwind
+
+선생님 git clone 으로 복사 .git 빼고 복사 붙여넣기 원래 파일에
+npm i 입력 - index.css에 @import "tailwindcss"; 복붙
+
+
+
 
 
 -------------------------------------------
