@@ -57,3 +57,14 @@ timestamptz 세계별로 시간이 달라서 오차가 있을 수 있음
 테이블2 만들기 - 이름 : t_board
 - 뉴칼럼 - user_id / int4 
 - foregn_key - referenced table : t_user / cloumns : id / cascade 2개 설정
+뉴칼럼 - 이름 created_dt -타입 timestamptz(시간표현) - column_default : now() 입력 엔터
+뉴칼럼 - 이름 updated_dt -타입 timestamptz - column_default : now() 입력 엔터
+
+
+설명
+한국에서 쓰는 서버 3대장
+1. Spring : 한국은행 사용
+2. Nodejs(express, 최신은 Hono) : 미국은행 사용
+3. FastAPI (AI 호환 가능)
+4. .Net Core C#
+
