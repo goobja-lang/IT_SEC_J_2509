@@ -30,3 +30,30 @@ serverless cloud
 서버(was)는 일부 기능만 지원
 DB 작은 용량 무료지원
 가장 큰 단점이 인공지능 지원 안함
+DB는 엔진이고, table plus 는 DB 조작하는 도구
+
+설치방법
+- 구글 검색 vercel - 대쉬보드 - creat - neon - itsec_202509 이름 만들기
+- 구글 - table plus - 윈도우용 다운로드 설치 - creat connection - pg - creat-
+- 이름 itsec_202509_vercel -
+- pgHost / user / password / database - 복붙 - test하고 connet 하면 완료-
+
+활용1
+Tables - new 만들기 - 이름 t_user(관례적으로 t_ 사용)
+하부에서 마우스 오른쪽 뉴칼럼 - 이름 username - 타입 varchar - column_default : '' 입력 엔터
+뉴칼럼 - 이름 password -타입 varchar - column_default : '' 입력 엔터
+뉴칼럼 - 이름 created_dt -타입 timestamptz(시간표현) - column_default : now() 입력 엔터
+뉴칼럼 - 이름 updated_dt -타입 timestamptz - column_default : now() 입력 엔터
+저장을 해야지 반영이 됨(ctrl+s)
+
+SQL - 바로 밑에 selct now() 치면 기준되는 시간을 볼 수 있음 (ctrl + enter)
+
+보강설명
+timestamptz 세계별로 시간이 달라서 오차가 있을 수 있음
+미국기준이 많음 - 그래서 한국 껄로 변경해줘야함 - gpt에게 문의하기
+
+
+활용2
+테이블2 만들기 - 이름 : t_board
+- 뉴칼럼 - user_id / int4 
+- foregn_key - referenced table : t_user / cloumns : id / cascade 2개 설정
