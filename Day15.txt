@@ -1,0 +1,22 @@
+Nodejs-
+리액트 (웹, 앱), 서버를 만드는데 사용함 거의 만능임
+
+파이썬-
+AI 돌릴 때 주요 사용
+ - 약 인공지능
+ - 강 인공지능 GPT 로 나뉨
+
+ DB-
+ postgres 깔았음 : 실무에서 많이씀 (엔진)
+ tavle plus (툴) 이라고 생각하면 됨
+
+ FastAPI -
+ 서버 소개하는 시간을 갖도록 할 예정임
+
+
+오전수업시작
+ table plus
+실습
+title, varchar, "
+connet, varchar, "
+t_board 테이블에 두 칼럼을 만들어주세요
