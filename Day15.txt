@@ -20,3 +20,37 @@ AI 돌릴 때 주요 사용
 title, varchar, "
 connet, varchar, "
 t_board 테이블에 두 칼럼을 만들어주세요
+
+지금하는 수업은 기존의 리액트 실습 사이트에서 게시판 만드는 작업임
+댓글도 만들 수 있음
+
+
+실습 : ctrl + 엔터 눌러야지 적용됨
+SQL에서 치는 것
+
+--특정 테이블의 데이터 보기
+SELECT
+*
+FROM t_user
+;
+
+-- 특정 테이블의 데이터 추가
+INSERT INTO t_user(username, PASSWORD)
+VALUES('홍길동','1234')
+;
+
+-- 데이터 수정. 무조건 where id 들어가야함. 안그러면 데이터 다 날라감
+UPDATE t_user SET
+PASSWORD = 'aaaa'
+WHERE id=1
+;
+
+-- 데이터 삭제. 무조건 where id 들어가야함. 안그러면 데이터 다 날라감
+DELETE FROM t_user
+WHERE id=1
+;
+
+
+INSERT INTO t_board(user_id, title, content)
+VALUES(2,'오늘 할일','개 밥주기, 쓰다듬기, 산책시키기')
+;
