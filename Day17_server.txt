@@ -33,7 +33,8 @@ Tensorflow - 구글, 거진 유기함. 근데 문제는 시중에 책은 다 ten
   모든 AI 모데을 다 만들 수 없고, 오픈소스 모델들 갔다 쓰는게 허다해요.
   근데, Pytorch 경험이 없으면 이때 난감해져요.
 
-  
+그래서 파이썬 버전 다 다들게 설치하고, 어떻게 사용할거냐?
+uv 라는 것을 사용할 겁니다.
 
 
 
@@ -42,3 +43,16 @@ Tensorflow - 구글, 거진 유기함. 근데 문제는 시중에 책은 다 ten
 실습
 1. 파이썬 3.10 64비트 설칠
  - 버젼 확인 cmd - 'py -0p' 입력하면 설치된 버젼 알 수 있음
+ - 'pip install uv' 엔터
+
+2. 문서 - 새폴더(Python) - 새폴더(FastAPI_test1) - git bash - new file(README.md)
+
+py -3.10 -m pip install uv
+
+py -3.10 -m uv venv venv
+
+.\venv\Scripts\Activate.ps1
+
+ - 코드 입력 - 터미널에 차례대로 입력 엔터 
+
+ 
