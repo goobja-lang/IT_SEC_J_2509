@@ -57,6 +57,8 @@ py -3.10 -m uv venv venv
 # 이런 가상환경을 활성화해라 라는 뜻
 .\venv\Scripts\Activate.ps1
 
+
+
  - 코드 입력 - 터미널에 차례대로 입력 엔터 (터미널을 끄면 없어지므로 다시 켜야함)
  - 오른쪽에 venv 폴더가 생김
 
@@ -97,6 +99,7 @@ import os # 환경 변수를 읽기 위해 os 모듈 추가
 
 app = FastAPI()
 
+@app.get("/")
 def default_get():
     result={"success"=True,"data":None,"msg":""}
     try:
@@ -113,3 +116,41 @@ if __name__=="__main__":
 
 uv run python app.py - 터미널에 입력 - 사이트 ctrl+클릭 하면 사이트 뜨는데 'not found'나옴
 
+-----------------------
+
+400 (auth) : 권한이 없다. 너 저리 가셈
+404(Not found) : 그런 API 주소(인터넷 주소)는 없다
+505(Internal Server Error) : 서버에서 에러 터졌다
+
+인터넷은 모든 데이터를 문자열로 주고 받아요.
+서버도 문자열로 받고, 문자열로 줘요.
+
+
+--------------------------------실습2
+app = FastAPI()
+
+@app.get("/")
+def default_get():
+    result={"success":True, "data":None, "msg":""}
+    try:
+        result["data"]="ok"
+        99/0 ##이부분 지우면 정상
+        return result
+    except Exception as e:
+        result["success"]=False
+        result["msg"]=f"server error. {e!r}"
+        return result
+
+if __name__ == "__main__":
+    uvicorn.run("app:app", host="localhost", port=8000, reload=True)
+
+    --------------------------------------
+
+에러에는 3가지가 있어요
+1. 문법에러. vs code 같은데서 빨간줄로 알려줘요
+2. 컴파일 에러. java, c#, typescript 같은데서 저장하기, 컴파일하기 같은 수행할때
+power shell에 나타나요
+3. 런타임 에러. 이건 실행 해봐야 알아요.
+
+
+uv run python app.py 입력하면 예제2로 서버완성! ㅎㅎ
