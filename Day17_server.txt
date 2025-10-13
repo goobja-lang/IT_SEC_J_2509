@@ -36,7 +36,7 @@ Tensorflow - 구글, 거진 유기함. 근데 문제는 시중에 책은 다 ten
 그래서 파이썬 버전 다 다들게 설치하고, 어떻게 사용할거냐?
 uv 라는 것을 사용할 겁니다.
 
-
+## 파이썬은 서버용 아님, 간단한 코딩어 밖에 못하기 때문
 
 
 -------------------------
@@ -47,12 +47,69 @@ uv 라는 것을 사용할 겁니다.
 
 2. 문서 - 새폴더(Python) - 새폴더(FastAPI_test1) - git bash - new file(README.md)
 
+# 파이썬 3.10 버전에 uv를 설치해라
 py -3.10 -m pip install uv
 
+
+# uv 이용해서 3.10 이라는 가상환경을 만들어라는 뜻
 py -3.10 -m uv venv venv
 
+# 이런 가상환경을 활성화해라 라는 뜻
 .\venv\Scripts\Activate.ps1
 
- - 코드 입력 - 터미널에 차례대로 입력 엔터 
+ - 코드 입력 - 터미널에 차례대로 입력 엔터 (터미널을 끄면 없어지므로 다시 켜야함)
+ - 오른쪽에 venv 폴더가 생김
 
- 
+3. 마우스오른쪽 new file(requirements.txt) 생성 - 그 안에다가
+---------------------------
+fastapi
+uvicorn[standard]
+sqlalchemy
+asyncpg         # 비동기 PostgreSQL 드라이버 (psycopg2-binary 대신 사용)
+pydantic-settings # 환경 변수 관리를 위한 Pydantic 라이브러리
+python-dotenv # 로컬 개발 환경에서 .env 파일 로드를 위해 필요 (선택 사항)
+pydantic # fastapi req 유효성 검사
+scikit-learn
+
+붙여넣기
+
+--------------------------
+uv pip install -r requirements.txt  // 터미널 입력 엔터 하면 알아서 설치
+
+
+## 
+만약 uv pip install -r requirements.txt 실행시 에러 난다면
+.\venv\Scripts\Activate.ps1  이게 활성화 된 상태에서
+pip install uv 해주세요
+그다음 uv pip install -r requirements.txt  실행해 주세요
+##
+
+4. 마우스오른쪽 new file(app.py) 여기에 //파이썬 서버화를 위한 코딩
+
+from contextlib import asynccontextmanager
+from fastapi import FastAPI, Depends, HTTPException
+from pydantic import BaseModel
+import uvicorn
+import asyncpg
+from typing import List, Dict, Any, Union
+
+import os # 환경 변수를 읽기 위해 os 모듈 추가
+
+app = FastAPI()
+
+def default_get():
+    result={"success"=True,"data":None,"msg":""}
+    try:
+        result["data"]="ok"
+        return result
+    except Exception as e:
+        pass
+    pass
+
+if __name__=="__main__":
+    uvicorn.run("app:app", host="localhost", port=8000, reload=True)
+
+붙여넣기
+
+uv run python app.py - 터미널에 입력 - 사이트 ctrl+클릭 하면 사이트 뜨는데 'not found'나옴
+
