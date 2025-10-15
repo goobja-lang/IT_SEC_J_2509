@@ -36,3 +36,151 @@ index.ts
 
 
 --------------------------------index.ts 실습
+
+
+
+
+DB 연결이 서버에서 제일 어려워요
+* npm i -g typeorm-model-generator 설치하기
+
+* .env.development   파일 루트에 만들기
+
+DB_HOST= ep-shy-cloud-ae0v32b0-pooler.c-2.us-east-2.aws.neon.tech
+DB_PORT=5432
+DB_USERNAME=neondb_owner
+DB_PASSWORD= npg_bj8OZeBaLE9y
+DB_NAME=neondb
+
+복붙
+
+* npm i cross-env dotenv pg reflect-metadata rimraf typeorm zod 설치
+
+data-source1.ts 만들고 복붙
+
+* src/data-source1.ts
+import "reflect-metadata";
+import { DataSource } from "typeorm";
+import * as dotenv from "dotenv";
+import * as path from "path";
+import { fileURLToPath } from "url";
+
+const envFile =
+  process.env.NODE_ENV === "production"
+    ? ".env.production"
+    : ".env.development";
+dotenv.config({ path: envFile });
+
+// @ts-ignore
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export const AppDataSource = new DataSource({
+  type: "postgres",
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT || "5432"),
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  synchronize: false,
+  logging: false,
+  entities: [path.join(__dirname, "/entities/**/*.{ts,js}")],
+  ssl: true,
+});
+
+
+* tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "noUnusedLocals": false, // 사용되지 않는 지역 변수 경고 끄기
+    "noUnusedParameters": false, // 사용되지 않는 함수 매개변수 경고 끄기
+
+    "moduleResolution": "NodeNext",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "outDir": "./dist"
+  },
+  "exclude": ["node_modules"]
+}
+
+
+
+
+* src/index.ts
+import { serve } from "@hono/node-server";
+import { Hono } from "hono";
+
+import * as dotenv from "dotenv";
+import { AppDataSource } from "./data-source1.js";
+
+const envFile =
+  process.env.NODE_ENV === "production"
+    ? ".env.production"
+    : ".env.development";
+dotenv.config({ path: envFile });
+
+const app = new Hono();
+
+/** DB 연결 */
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Data Source has been initialized!");
+  })
+  .catch((err) => {
+    console.error("Error during Data Source initialization:", err);
+  });
+/** DB 연결 END */
+
+app.get("/", (c) => {
+  return c.text("Hello Hono!");
+});
+
+app.get("/test1", async (c) => {
+  let result: { success: boolean; data: any; msg: string } = {
+    success: true,
+    data: null,
+    msg: ``,
+  };
+  try {
+    let q = c?.req?.query("q");
+    result.data = q;
+    return c.json(result);
+  } catch (error: any) {
+    return c.json(result);
+  }
+});
+app.post("/test1", async (c) => {
+  let result: { success: boolean; data: any; msg: string } = {
+    success: true,
+    data: null,
+    msg: ``,
+  };
+  try {
+    const body = await c?.req?.parseBody();
+    let q = body["q"];
+    result.data = q;
+    return c.json(result);
+  } catch (error: any) {
+    return c.json(result);
+  }
+});
+
+serve(
+  {
+    fetch: app.fetch,
+    port: 3000,
+  },
+  (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+  }
+);
