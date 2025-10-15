@@ -184,3 +184,12 @@ serve(
     console.log(`Server is running on http://localhost:${info.port}`);
   }
 );
+
+
+
+
+
+
+* model generator 돌리기
+typeorm-model-generator -h 뭐뭐(호스트) -d neondb -u neondb_owner -x 뭐뭐(비번) -e postgres -o ./src --ssl
+typeorm-model-generator -h ep-shy-cloud-ae0v32b0-pooler.c-2.us-east-2.aws.neon.tech -d neondb -u neondb_owner -x npg_bj8OZeBaLE9y -e postgres -o ./src --ssl
