@@ -1,0 +1,5 @@
+프레임워크
+* 라우터(controller) 나누기
+http://localhost:3000/api/board/get_memo_list' 
+from origin 'http://localhost:5173' 
+has been blocked by CORS policy:
