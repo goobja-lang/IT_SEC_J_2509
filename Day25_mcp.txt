@@ -1,0 +1,41 @@
+실제 회사 운영과정
+1.기획(피그마)
+2.디자인
+3.백앤드
+ - 서버 먼저 작업
+4.프론트
+
+npm install -g @google/gemini-cli@latest
+: 제미니 cli 까는 코딩언어
+
+npm create hono@latest itsec_hono_2509
+: Nodejs hono 서버 생성 명령어
+: my-app 이걸 내가 원하는 이름으로
+
+순서
+npm create hono@latest itsec_hono_2509 이 코드 Hono 폴더에서 git bash 붙여넣기 - Nodejs 선택 엔터 엔터
+- 폴더 설치되면 git bash 열기 - 그리고 기존 hono_test_2509에서 .env.development 파일 복사해서 붙여넣기
+- 기존 hono_test_2509 src에서 data-source1.ts / tsconfig.json 복사 붙여넣기
+- npm i cross-env dotenv pg reflect-metadata rimraf typeorm zod 엔터
+-/** DB 연결 */
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Data Source has been initialized!");
+  })
+  .catch((err) => {
+    console.error("Error during Data Source initialization:", err);
+  });
+/** DB 연결 END */
+
+복붙하고 - AppDataSource 다시 치기 - npm run dev 엔터하면 연결됨
+
+typeorm-model-generator -h ep-shy-cloud-ae0v32b0-pooler.c-2.us-east-2.aws.neon.tech -d neondb -u neondb_owner -x npg_bj8OZeBaLE9y -e postgres -o ./src --ssl
+- 터미널에 입력하기(model generator 돌리기)
+
+
+
+AI 번외 설명
+알고리즘 > AI > 머신러닝 > 딥러닝 순으로 잘함
+알고리즘 : if, for  << >> & 등등
+
+
