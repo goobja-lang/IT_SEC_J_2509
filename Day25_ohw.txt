@@ -1,0 +1,3 @@
+java -jar signapk.jar testkey.x509.pem testkey.pk8 ../hack_and hack_and.apk
+
+배포자료에 빠진 내용임
