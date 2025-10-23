@@ -17,3 +17,8 @@
 
     npm create vite@latest itsec_react_2509 -- --template react-ts
 설치하고자 했던 폴더에 들어가서 git bash 안에 붙여넣기 하면 됨
+
+터미널에 붙여넣기 npm install react-router-dom
+
+"noUnusedLocals": false,
+"noUnusedParameters": false,
