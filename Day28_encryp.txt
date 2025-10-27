@@ -1,0 +1,12 @@
+npm install hono jsonwebtoken bcrypt
+npm install -D typescript ts-node @types/node @types/jsonwebtoken @types/bcrypt
+
+itsec_hono_2509 에 위 2개 타이핑 설치
+
+테이블플러스
+-t_user - open structure - SQL - 전체 지우고 복붙 - 하나 하나마다 - 마우스 올리고 Run Current - 총 2개
+ALTER TABLE t_user
+ADD COLUMN real_name VARCHAR DEFAULT '';
+
+ALTER TABLE t_user
+ADD COLUMN profile_url VARCHAR DEFAULT '';
