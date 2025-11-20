@@ -1,0 +1,47 @@
+리엑트 네이티브
+
+앱개발 3대장
+React native expo - 제일 편함
+flutter
+MAUI
+
+nodejs 하나로 타입스크립트 하나로
+서버, 웹, 앱 다해요
+
+리엑트 네이티브 엑스포는 리엑트랑 너무 비슷해요
+
+그리고 리엑트 네이티브 엑스포는 빌드를 지네 서버에서 해요
+
+무료이용자 - 대기열 있음 1달에 30회
+유료는 바로 빌드, 무제한
+
+엑스포 쓰면 구글, ios 출시가 더 쉽데요
+
+세팅방법
+엑스포 열기 - 세팅 - 세팅 - languages & frameworks - Android SDK
+- show package - 프로그램 설정
+- 체크목록
+Android 16.0 ("Baklava")
+- Android SDK Platform 36.1
+- Source for Android 36.1
+- Google Play Intel x86_64 Atom System image
+- pre-Release 16kb ------ Intel x86_64 Atom
+Android 16.0 ("Baklava")
+- Android SDK Platform 36
+- Source for Android 36
+- Android TV Intel x86 Atom
+- Google Play Intel x86_64 Atom System image
+- pre-Release 16kb ------ Intel x86_64 Atom
+
+
+환경변수편집 등록 (아래부분 새로만들기 적용)
+ANDROID_HOME
+C:\Users\itg\AppData\Local\Android\Sdk
+C:\Users\itg\AppData\Local\Android\Sdk\platform-tools  --- path에 추가하는 것
+
+
+실습
+-3번째 디바이스 - 픽셀3 - 오른쪽 끝 재생버튼 누르면 핸드폰 모양 뜸
+- Create a development build 참고하여 (expo doc) 시작 - powershell 에 입력
+-npm install -g eas-cli
+-eas login
