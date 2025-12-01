@@ -39,9 +39,27 @@ ANDROID_HOME
 C:\Users\itg\AppData\Local\Android\Sdk
 C:\Users\itg\AppData\Local\Android\Sdk\platform-tools  --- path에 추가하는 것
 
+본인 개인 컴퓨터에는 Android studio -> 톱니바퀴 아이콘
+Android SDK 가시고
+상단에 Android Sdk Location 그거 복사해서 경로 맞추면 되요
+
+그리고 powershell 열고
+-npm install -g eas-cli
+-eas login
+이건 컴퓨터에 한번만 해주시면 되요
 
 실습
 -3번째 디바이스 - 픽셀3 - 오른쪽 끝 재생버튼 누르면 핸드폰 모양 뜸
 - Create a development build 참고하여 (expo doc) 시작 - powershell 에 입력
 -npm install -g eas-cli
 -eas login
+
+
+react native expo 생성 명령
+npx create-expo-app@latest my_app_name
+
+
+expo 프로젝트 처음 생성하면, 뭐가 많아서 어지러운데
+쉽게 생각하면
+app/(tabs)/_layout.tsx
+요놈이 react app.tsx 랑 똑같음
