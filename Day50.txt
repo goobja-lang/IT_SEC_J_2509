@@ -1,0 +1,9 @@
+cpu
+- catboost
+자연어 알아서 숫자로 바꿔줌
+
+ALS
+
+rag 돌리는것
+
+NCF
